@@ -16,13 +16,16 @@ import {
 import { Button } from "@/components/ui/button";
 
 import {
-  farhanaAwards,
-  farhanaConferences,
-  farhanaMembership,
-} from "@/lib/config";
+  director,
+  directorAwards,
+  directorConferences,
+  directorMembership,
+  directorInterests,
+  directorApplications,
+} from "@/lib/director";
 
 export const metadata: Metadata = {
-  title: "Dr. Farhana F. Zulkernine",
+  title: director.full_title,
   description: "Lorem Ipsum",
 };
 
@@ -32,9 +35,11 @@ const DirectorPage = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Lab Director</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+            Lab Director
+          </h1>
           <p className="text-xl text-muted-foreground">
-            Leading innovation in computational research
+            Leading innovation in some kind of research field
           </p>
         </div>
 
@@ -42,19 +47,17 @@ const DirectorPage = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="md:col-span-1">
             <div className="sticky top-24">
-              <div className="aspect-square relative rounded-lg overflow-hidden bg-muted mb-6">
+              <div className="aspect-square relative rounded-lg overflow-hidden bg-muted mb-6 w-full">
                 <Image
                   src="/placeholder.png"
-                  alt="Dr. Farhana Zulkernine"
+                  alt={director.full_title}
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-2xl font-bold">
-                    Dr. Farhana F. Zulkernine
-                  </h2>
+                  <h2 className="text-2xl font-bold">{director.full_title}</h2>
                   <p className="text-muted-foreground">
                     Professor & Lab Director
                   </p>
@@ -63,13 +66,13 @@ const DirectorPage = () => {
                   <div className="flex items-center gap-2 text-sm">
                     <Mail className="size-4 text-muted-foreground" />
                     <Link
-                      href="mailto:farhana.zulkernine@queensu.ca"
+                      href={`mailto:${director.email}`}
                       className="hover:underline"
                     >
-                      farhana.zulkernine@queensu.ca
+                      {director.email}
                     </Link>
                   </div>
-                  <div className="flex items-center gap-6 text-sm">
+                  <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 text-sm">
                     <div className="flex gap-2">
                       <Phone className="size-4 text-muted-foreground" />
                       <span>(613) 533-6426</span>
@@ -81,7 +84,7 @@ const DirectorPage = () => {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <GraduationCap className="size-4 text-muted-foreground" />
-                    <span>PhD, Computer Science; PEng</span>
+                    <span>PhD, Science</span>
                   </div>
                 </div>
                 <Button className="w-full">
@@ -100,34 +103,31 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Dr. Farhana Zulkernine is a Professor and the Coordinator of
-                  the Cognitive Science program at the School of Computing at
-                  Queen&apos;s University. She holds a Ph.D. degree from the
-                  School of Computing at Queen&apos;s University and is a member
-                  of Professional Engineers of Ontario. Her research interests
-                  include service and cloud computing, big data analytics and
-                  management, and cognitive computing.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  porta enim dui, eget dapibus lacus volutpat in. Quisque
+                  tincidunt venenatis tellus, ac dapibus tortor maximus quis.
+                  Sed bibendum, metus ac pellentesque sollicitudin, augue metus
+                  blandit odio, sit amet vestibulum sapien dui at lectus. Aenean
+                  ac lorem eget odio tincidunt tristique at et quam. Nulla
+                  condimentum, ipsum at interdum finibus, tellus purus pulvinar
+                  nisi, quis consectetur nisl nibh quis sem.
                 </p>
                 <p>
-                  She has more than 15 years of international work experience in
-                  three continents in software design, analysis and research. As
-                  a researcher she has worked with CA Technologies, IBM Canada,
-                  SAP Germany and Fondazione Bruno Kessler in Italy. She has
-                  ongoing research collaborations with IBM Canada, Roche,
-                  Pfizer, Markitech, Gnowit, Calian, the Centre for Advanced
-                  Computing (CAC), Compute Canada, Canadian Primary Care
-                  Sentinel Services Network (CPCSSN), and Queen&apos;s School of
-                  Medicine, Law, and Business.
+                  Morbi eget lacus mattis, commodo tellus quis, dictum libero.
+                  Nulla in odio eu nulla lacinia tincidunt. Quisque placerat
+                  ipsum sed neque rutrum laoreet. Praesent sed orci feugiat,
+                  malesuada nunc a, sagittis nibh. Mauris in velit vel libero
+                  vehicula tristique. Pellentesque tincidunt maximus
+                  ullamcorper. Vestibulum est nisi, mollis ac orci eget, rutrum
+                  convallis mauris. Sed nulla nisl, vestibulum sit amet
+                  tincidunt ut, malesuada vel felis.
                 </p>
                 <p>
-                  She has taught a wide number of courses in deep learning,
-                  cognitive science, and database management systems. Her
-                  research has been funded by IBM, CFI, MITACS, NSERC CRD,
-                  Discovery and CREATE, OCE VIP, CUTRIC, CIMVHR, SOSCIP and
-                  Queen&apos;s. She has published in many reputed journals and
-                  international conferences and served on a variety of
-                  conference program and grant committees as an expert in big
-                  data and machine learning.
+                  Suspendisse volutpat nibh diam, sed porta nisl tristique eget.
+                  Curabitur gravida est nec mattis posuere. Fusce condimentum
+                  maximus eros rhoncus dignissim. Vestibulum finibus semper
+                  orci, sit amet dapibus felis venenatis a. Maecenas dignissim
+                  mattis urna, nec tempor ligula viverra eu.
                 </p>
               </CardContent>
             </Card>
@@ -139,21 +139,11 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">
-                    Big and Streaming Data Management & Analytics
-                  </Badge>
-                  <Badge variant="secondary">Artificial Intelligence</Badge>
-                  <Badge variant="secondary">
-                    Deep Learning (IoT, text and video/image data)
-                  </Badge>
-                  <Badge variant="secondary">
-                    Decision Support Systems (DSS)
-                  </Badge>
-                  <Badge variant="secondary">Cognitive Computing</Badge>
-                  <Badge variant="secondary">Knowledge Mangement Systems</Badge>
-                  <Badge variant="secondary">
-                    Cloud and Services Computing
-                  </Badge>
+                  {directorInterests.map((interest, i) => (
+                    <Badge key={i} variant="secondary">
+                      {interest}
+                    </Badge>
+                  ))}
                 </div>
               </CardContent>
 
@@ -162,15 +152,11 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">
-                    Medical/health Information Systems
-                  </Badge>
-                  <Badge variant="secondary">Wearable Health Monitors</Badge>
-                  <Badge variant="secondary">Autonomous Vehicles</Badge>
-                  <Badge variant="secondary">Smart Cities</Badge>
-                  <Badge variant="secondary">
-                    Medical, Law and Financial Data Analytics
-                  </Badge>
+                  {directorApplications.map((application, i) => (
+                    <Badge variant={"secondary"} key={i}>
+                      {application}
+                    </Badge>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -185,24 +171,24 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <div className="font-semibold">PhD in Computer Science</div>
+                  <div className="font-semibold">PhD in Science</div>
                   <div className="text-sm text-muted-foreground">
-                    Queen&apos;s University, 2009
+                    Lorem Ipsum University, 2000
                   </div>
                   <div className="text-sm text-muted-foreground">
                     Thesis: &quot;Thesis name&quot;
                   </div>
                 </div>
                 <div>
-                  <div className="font-semibold">MSc in Engineering</div>
+                  <div className="font-semibold">MSc in Science</div>
                   <div className="text-sm text-muted-foreground">
-                    Bangladesh University of Engineering and Technology, [date]
+                    Lorem Ipsum University, 1996
                   </div>
                 </div>
                 <div>
-                  <div className="font-semibold">BSc in Computer Science</div>
+                  <div className="font-semibold">BSc in Science</div>
                   <div className="text-sm text-muted-foreground">
-                    Bangladesh University of Engineering and Technology, [date]
+                    Lorem Ipsum University, 1992
                   </div>
                 </div>
               </CardContent>
@@ -220,17 +206,22 @@ const DirectorPage = () => {
                 <div>
                   <h3 className="font-semibold mb-2">Conference Leadership</h3>
                   <ul className="space-y-4 text-sm text-muted-foreground">
-                    {farhanaConferences.map((item, i) => (
+                    {directorConferences.map((item, i) => (
                       <li className="space-y-1" key={i}>
                         <div>
                           <span className="font-bold">{item.title}</span>
                           {item.workshop && (
-                            <Link
-                              href={item.workshop_url ? item.workshop_url : "#"}
-                              className="underline"
-                            >
-                              , {item.workshop}
-                            </Link>
+                            <>
+                              ,{" "}
+                              <Link
+                                href={
+                                  item.workshop_url ? item.workshop_url : "#"
+                                }
+                                className="underline"
+                              >
+                                {item.workshop}
+                              </Link>
+                            </>
                           )}
                         </div>
                         <div className="border-l border-l-border pl-3">
@@ -254,7 +245,7 @@ const DirectorPage = () => {
                     Professional Memberships
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {farhanaMembership.map((item, i) => (
+                    {directorMembership.map((item, i) => (
                       <Badge key={i}>{item}</Badge>
                     ))}
                   </div>
@@ -272,7 +263,7 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {farhanaAwards.map((item, i) => (
+                  {directorAwards.map((item, i) => (
                     <li className="flex gap-3" key={i}>
                       <span className="text-muted-foreground min-w-16">
                         {item.year}

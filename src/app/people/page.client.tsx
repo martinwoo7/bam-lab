@@ -13,14 +13,14 @@ const ClientPage = () => {
   return (
     <div className="container py-12">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Team</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Our Team</h1>
         <p className="text-xl text-muted-foreground max-w-3xl">
           Meet the talented researchers, students, and collaborators driving
           innovation in our lab
         </p>
       </div>
       <Tabs defaultValue="all" className="space-y-8">
-        <TabsList className="flex flex-wrap">
+        <TabsList className="flex-wrap h-auto">
           <TabsTrigger value="all">All</TabsTrigger>
           <TabsTrigger value="faculty">Faculty</TabsTrigger>
           <TabsTrigger value="postdocs">Postdocs</TabsTrigger>

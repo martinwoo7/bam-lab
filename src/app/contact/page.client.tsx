@@ -33,6 +33,8 @@ import { Mail, MapPin, ArrowDown } from "lucide-react";
 import { openPositions } from "@/lib/positions";
 import { Badge } from "@/components/ui/badge";
 
+import { director } from "@/lib/director";
+
 const formSchema = z.object({
   name: z.string().min(1, { error: "This field has to be filled." }),
   email: z
@@ -58,15 +60,16 @@ const ClientPage = () => {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
+    console.log("submitted");
     toast("You submitted the following values:", {
       description: (
-        <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
+        <pre className="text-muted-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
           <code>{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
       position: "bottom-right",
       classNames: {
-        content: "flex flex-col gap-2",
+        content: "flex flex-col gap-2 bg-muted",
       },
       style: {
         "--border-radius": "calc(var(--radius)  + 4px)",
@@ -88,7 +91,7 @@ const ClientPage = () => {
           <Badge asChild variant="secondary" className="rounded-full lg:hidden">
             <Link href="#hiring">
               <span
-                className="flex size-2 rounded-full bg-blue-500"
+                className="flex size-2 rounded-full bg-primary"
                 title="New"
               />
               We have open positions <ArrowDown />
@@ -97,8 +100,10 @@ const ClientPage = () => {
         )}
 
         <div className="mb-12 mt-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-muted-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+            Contact Us
+          </h1>
+          <p className="text-xl text-muted-foreground font-serif">
             Get in touch with our research team
           </p>
         </div>
@@ -108,7 +113,7 @@ const ClientPage = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Send us a message</CardTitle>
-                <CardDescription>
+                <CardDescription className="font-serif">
                   Fill out the form and we&apos;ll get back to you as soon as
                   possible
                 </CardDescription>
@@ -308,7 +313,11 @@ const ClientPage = () => {
                 </form>
               </CardContent>
               <CardFooter>
-                <Button type="submit" id="contact-form-submit">
+                <Button
+                  type="submit"
+                  form="contact-form"
+                  className=" hover:cursor-pointer"
+                >
                   Submit
                 </Button>
               </CardFooter>
@@ -357,47 +366,48 @@ const ClientPage = () => {
                 </p>
               </CardFooter>
             </Card>
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-4">
+              <Card className="w-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MapPin className="size-5 text-primary" /> Location
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <p className="font-medium">Research Lab</p>
+                  <p className="text-muted-foreground">
+                    Lab Department
+                    <br />
+                    123 Sesame Street
+                    <br />
+                    Lorem Ipsum University
+                    <br />
+                    City, Province
+                    <br />
+                    Country
+                  </p>
+                </CardContent>
+              </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MapPin className="size-5" /> Location
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                <p className="font-medium">Research Lab</p>
-                <p className="text-muted-foreground">
-                  Computer Science Department
-                  <br />
-                  633 Goodwin Hall
-                  <br />
-                  Queen&apos;s University
-                  <br />
-                  Kingston, ON
-                  <br />
-                  Canada
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Mail className="size-5" /> Email
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2 text-sm">
-                <div>
-                  <p className="font-medium">Lab Director</p>
-                  <a
-                    href="mailto:farhana.zulkernine@queensu.ca"
-                    className="text-muted-foreground hover:text-foreground"
-                  >
-                    farhana.zulkernine@queensu.ca
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+              <Card className="w-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Mail className="size-5 text-primary" /> Email
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div>
+                    <p className="font-medium">Lab Director</p>
+                    <a
+                      href={`mailto:${director.email}`}
+                      className="text-muted-foreground hover:text-foreground"
+                    >
+                      {director.email}
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>
