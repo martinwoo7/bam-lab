@@ -15,7 +15,7 @@ const SiteFooter = () => {
           <div className="space-y-2">
             <p className="text-primary text-sm font-medium">Quick Links</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1 gap-x-2 font-serif text-muted-foreground">
-              {siteConfig.navItems.map((item, i) => (
+              {siteConfig.footerItems.map((item, i) => (
                 <Link href={item.href} key={i} className="text-sm">
                   {item.label}
                 </Link>

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
+
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -48,7 +49,7 @@ const DirectorPage = () => {
           <div className="md:col-span-1">
             <div className="sticky top-24">
               <div className="aspect-square relative rounded-lg overflow-hidden bg-muted mb-6 w-full">
-                <Image
+                <ExportedImage
                   src="/placeholder.png"
                   alt={director.full_title}
                   fill

@@ -47,10 +47,10 @@ const MainNav = ({
                 {item.items && item.items.length > 0 ? (
                   <>
                     <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
-                    <NavigationMenuContent>
+                    <NavigationMenuContent className="p-0 py-2">
                       {item.items.map((subItem, j) => (
-                        <Item key={j}>
-                          <NavigationMenuLink>
+                        <Item key={j} className="px-2 py-0">
+                          <NavigationMenuLink href={"#"} className="w-full">
                             <ItemContent>
                               <ItemTitle>{subItem.label}</ItemTitle>
                             </ItemContent>
@@ -61,7 +61,9 @@ const MainNav = ({
                   </>
                 ) : (
                   <>
-                    <NavigationMenuLink>{item.label}</NavigationMenuLink>
+                    <NavigationMenuLink className="font-medium">
+                      {item.label}
+                    </NavigationMenuLink>
                   </>
                 )}
               </NavigationMenuItem>

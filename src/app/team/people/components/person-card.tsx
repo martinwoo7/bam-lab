@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import Link from "next/link";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 import { Mail, Globe } from "lucide-react";
 
@@ -17,7 +17,7 @@ const PersonCard = ({ person }: { person: Person }) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="aspect-square relative bg-muted">
-        <Image
+        <ExportedImage
           src={person.image || "/placeholder.png"}
           alt={person.name}
           fill

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -43,10 +43,16 @@ const ClientPage = () => {
         </div>
 
         <div className="relative w-full lg:max-w-xl h-auto aspect-video">
-          {/* <Image src="#" fill alt="Lab image" /> */}
-          <div className="absolute inset-0 bg-secondary flex items-center justify-center rounded-md">
+          <ExportedImage
+            src="imgs/queen's_university.jpg"
+            fill
+            alt="Queen's University"
+            className="object-cover"
+            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          {/* <div className="absolute inset-0 bg-secondary flex items-center justify-center rounded-md">
             <p>Image</p>
-          </div>
+          </div> */}
         </div>
       </div>
 

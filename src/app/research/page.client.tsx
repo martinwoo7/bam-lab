@@ -8,7 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
+// import ExportedImage from "next-image-export-optimizer";
+
 import researchAreas from "@/lib/research";
 import { Separator } from "@/components/ui/separator";
 
@@ -16,7 +17,9 @@ const ClientPage = () => {
   return (
     <div className="container py-12">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Research Areas</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+          Research Areas
+        </h1>
         <p className="text-xl text-muted-foreground max-w-3xl">
           Our lab conducts cutting-edge research across multiple domains of
           artificial intelligence and machine learning.
