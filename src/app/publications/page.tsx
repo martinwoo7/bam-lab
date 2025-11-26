@@ -12,8 +12,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 import { Award, ExternalLink, FileText, Search } from "lucide-react";
 
-import { publications } from "@/lib/publications";
-import { notableVenues } from "@/lib/config";
+import { publications, notableVenues } from "@/lib/publications";
 
 interface Publication {
   year: number;

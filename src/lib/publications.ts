@@ -1,3 +1,15 @@
+export const notableVenues: string[] = [
+  "NeurIPS",
+  "ICML",
+  "ICLR",
+  "CVPR",
+  "ACL",
+  "AAAI",
+  "IJCAI",
+  "Nature",
+  "Science",
+];
+
 export const publications = [
   {
     year: 2025,

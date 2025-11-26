@@ -9,20 +9,29 @@ import {
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
 } from "./ui/navigation-menu";
 
-import { motion, LayoutGroup } from "motion/react";
+import { Item, ItemContent, ItemTitle } from "./ui/item";
+
+interface SubItems {
+  href: string;
+  label: string;
+}
 
 interface MenuItems {
-  name: string;
-  url: string;
+  href?: string;
+  label: string;
+  items?: SubItems[];
 }
+
 const MainNav = ({
   items,
   className,
   ...props
 }: React.ComponentProps<"nav"> & {
-  items: { href: string; label: string; items?: MenuItems[] }[];
+  items: MenuItems[];
 }) => {
   const pathname = usePathname();
   return (
@@ -30,31 +39,34 @@ const MainNav = ({
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
         <nav className={cn("items-center gap-0.5", className)} {...props}>
-          {items.map((item) => (
-            <NavigationMenuItem key={item.href}>
-              <motion.div
-                className={cn(
-                  pathname === item.href &&
-                    "text-primary underline underline-primary underline-offset-2"
+          {items.map((item, i) => {
+            const isActive = pathname === item.href;
+
+            return (
+              <NavigationMenuItem key={i}>
+                {item.items && item.items.length > 0 ? (
+                  <>
+                    <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      {item.items.map((subItem, j) => (
+                        <Item key={j}>
+                          <NavigationMenuLink>
+                            <ItemContent>
+                              <ItemTitle>{subItem.label}</ItemTitle>
+                            </ItemContent>
+                          </NavigationMenuLink>
+                        </Item>
+                      ))}
+                    </NavigationMenuContent>
+                  </>
+                ) : (
+                  <>
+                    <NavigationMenuLink>{item.label}</NavigationMenuLink>
+                  </>
                 )}
-              >
-                <NavigationMenuLink href={item.href} className="relative">
-                  <span>{item.label}</span>
-                  {/* {pathname === item.href && (
-                    <motion.div
-                      layoutId="underline"
-                      className="absolute left-0 w-full bottom-0 h-0.5 bg-amber-600"
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                      }}
-                    />
-                  )} */}
-                </NavigationMenuLink>
-              </motion.div>
-            </NavigationMenuItem>
-          ))}
+              </NavigationMenuItem>
+            );
+          })}
 
           <NavigationMenuItem className="ml-4">
             <Button asChild variant={"secondary"}>

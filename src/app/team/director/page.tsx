@@ -16,13 +16,16 @@ import {
 import { Button } from "@/components/ui/button";
 
 import {
-  farhanaAwards,
-  farhanaConferences,
-  farhanaMembership,
-} from "@/lib/config";
+  director,
+  directorAwards,
+  directorConferences,
+  directorMembership,
+  directorInterests,
+  directorApplications,
+} from "@/lib/director";
 
 export const metadata: Metadata = {
-  title: "Dr. Farhana F. Zulkernine",
+  title: director.full_title,
   description: "Lorem Ipsum",
 };
 
@@ -45,16 +48,14 @@ const DirectorPage = () => {
               <div className="aspect-square relative rounded-lg overflow-hidden bg-muted mb-6">
                 <Image
                   src="/placeholder.png"
-                  alt="Dr. Farhana Zulkernine"
+                  alt={director.full_title}
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-2xl font-bold">
-                    Dr. Farhana F. Zulkernine
-                  </h2>
+                  <h2 className="text-2xl font-bold">{director.full_title}</h2>
                   <p className="text-muted-foreground">
                     Professor & Lab Director
                   </p>
@@ -63,10 +64,10 @@ const DirectorPage = () => {
                   <div className="flex items-center gap-2 text-sm">
                     <Mail className="size-4 text-muted-foreground" />
                     <Link
-                      href="mailto:farhana.zulkernine@queensu.ca"
+                      href={`mailto:${director.email}`}
                       className="hover:underline"
                     >
-                      farhana.zulkernine@queensu.ca
+                      {director.email}
                     </Link>
                   </div>
                   <div className="flex items-center gap-6 text-sm">
@@ -139,21 +140,11 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">
-                    Big and Streaming Data Management & Analytics
-                  </Badge>
-                  <Badge variant="secondary">Artificial Intelligence</Badge>
-                  <Badge variant="secondary">
-                    Deep Learning (IoT, text and video/image data)
-                  </Badge>
-                  <Badge variant="secondary">
-                    Decision Support Systems (DSS)
-                  </Badge>
-                  <Badge variant="secondary">Cognitive Computing</Badge>
-                  <Badge variant="secondary">Knowledge Mangement Systems</Badge>
-                  <Badge variant="secondary">
-                    Cloud and Services Computing
-                  </Badge>
+                  {directorInterests.map((interest, i) => (
+                    <Badge key={i} variant="secondary">
+                      {interest}
+                    </Badge>
+                  ))}
                 </div>
               </CardContent>
 
@@ -162,15 +153,11 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">
-                    Medical/health Information Systems
-                  </Badge>
-                  <Badge variant="secondary">Wearable Health Monitors</Badge>
-                  <Badge variant="secondary">Autonomous Vehicles</Badge>
-                  <Badge variant="secondary">Smart Cities</Badge>
-                  <Badge variant="secondary">
-                    Medical, Law and Financial Data Analytics
-                  </Badge>
+                  {directorApplications.map((application, i) => (
+                    <Badge variant={"secondary"} key={i}>
+                      {application}
+                    </Badge>
+                  ))}
                 </div>
               </CardContent>
             </Card>
@@ -220,17 +207,22 @@ const DirectorPage = () => {
                 <div>
                   <h3 className="font-semibold mb-2">Conference Leadership</h3>
                   <ul className="space-y-4 text-sm text-muted-foreground">
-                    {farhanaConferences.map((item, i) => (
+                    {directorConferences.map((item, i) => (
                       <li className="space-y-1" key={i}>
                         <div>
                           <span className="font-bold">{item.title}</span>
                           {item.workshop && (
-                            <Link
-                              href={item.workshop_url ? item.workshop_url : "#"}
-                              className="underline"
-                            >
-                              , {item.workshop}
-                            </Link>
+                            <>
+                              ,{" "}
+                              <Link
+                                href={
+                                  item.workshop_url ? item.workshop_url : "#"
+                                }
+                                className="underline"
+                              >
+                                {item.workshop}
+                              </Link>
+                            </>
                           )}
                         </div>
                         <div className="border-l border-l-border pl-3">
@@ -254,7 +246,7 @@ const DirectorPage = () => {
                     Professional Memberships
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {farhanaMembership.map((item, i) => (
+                    {directorMembership.map((item, i) => (
                       <Badge key={i}>{item}</Badge>
                     ))}
                   </div>
@@ -272,7 +264,7 @@ const DirectorPage = () => {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {farhanaAwards.map((item, i) => (
+                  {directorAwards.map((item, i) => (
                     <li className="flex gap-3" key={i}>
                       <span className="text-muted-foreground min-w-16">
                         {item.year}

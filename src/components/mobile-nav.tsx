@@ -18,15 +18,21 @@ import {
   DrawerClose,
 } from "./ui/drawer";
 
+interface SubItems {
+  href: string;
+  label: string;
+}
+
 interface MenuItems {
-  name: string;
-  url: string;
+  href?: string;
+  label: string;
+  items?: SubItems[];
 }
 export function MobileNav({
   items,
   className,
 }: {
-  items: { href: string; label: string; items?: MenuItems[] }[];
+  items: MenuItems[];
   className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
@@ -74,11 +80,21 @@ export function MobileNav({
               <MobileLink href="/" onOpenChange={setOpen}>
                 Home
               </MobileLink>
-              {items.map((item, index) => (
-                <MobileLink key={index} href={item.href} onOpenChange={setOpen}>
-                  {item.label}
-                </MobileLink>
-              ))}
+              {items.map((item, index) => {
+                if (item.href) {
+                  return (
+                    <MobileLink
+                      key={index}
+                      href={item.href}
+                      onOpenChange={setOpen}
+                    >
+                      {item.label}
+                    </MobileLink>
+                  );
+                } else {
+                  return null;
+                }
+              })}
             </div>
           </div>
         </div>
