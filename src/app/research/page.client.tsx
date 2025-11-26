@@ -16,7 +16,7 @@ const ClientPage = () => {
   return (
     <div className="container py-12">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Research Areas</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Research Areas</h1>
         <p className="text-xl text-muted-foreground max-w-3xl">
           Our lab conducts cutting-edge research across multiple domains of
           artificial intelligence and machine learning.

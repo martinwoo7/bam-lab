@@ -6,10 +6,10 @@ interface Positions {
 export const openPositions: Positions[] = [
   {
     type: "PhD",
-    research: "large graph data management and analytics",
+    research: "Large graph data management and analytics",
   },
   {
     type: "PhD",
-    research: "voice data analytics and cognitive computing",
+    research: "Voice data analytics and cognitive computing",
   },
 ];

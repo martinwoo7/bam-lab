@@ -26,16 +26,18 @@ const PublicationCard = ({ pub }: { pub: Publication }) => {
   return (
     <Card>
       <CardHeader>
-        <Badge variant={"secondary"}>{pub.year}</Badge>
+        <div className="sm:flex items-center justify-between">
+          <Badge variant={"secondary"}>{pub.year}</Badge>
 
-        <div className="flex gap-2 mb-2">
-          {pub.award && (
-            <Badge className="bg-amber-500 hover:bg-amber-600 duration-200 transition-colors hover:cursor-default">
-              <Award className="size-3 mr-1" />
-              {pub.award}
-            </Badge>
-          )}
-          <Badge variant={"outline"}>{pub.type}</Badge>
+          <div className="flex gap-2 max-sm:mt-2">
+            {pub.award && (
+              <Badge className="bg-primary hover:cursor-default">
+                <Award className="size-3 mr-1" />
+                {pub.award}
+              </Badge>
+            )}
+            <Badge variant={"outline"}>{pub.type}</Badge>
+          </div>
         </div>
 
         <CardTitle className="text-lg leading-tight">{pub.title}</CardTitle>
@@ -69,14 +71,14 @@ const Page = () => {
   return (
     <div className="container py-12">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Publications</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Publications</h1>
         <p className="text-xl text-muted-foreground max-w-3xl">
           Our research contributions to top-tier conferences and journals in
           artificial intelligence and machine learning
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 lg:gap-6 mb-12">
         <Card>
           <CardHeader>
             <CardDescription>Total Publications</CardDescription>
@@ -110,7 +112,7 @@ const Page = () => {
       </div>
 
       <Tabs defaultValue="all" className="space-y-8">
-        <TabsList className="flex flex-wrap">
+        <TabsList className="flex-wrap h-auto">
           <TabsTrigger value="all">All Publications</TabsTrigger>
           <TabsTrigger value="conference">Conference Papers</TabsTrigger>
           <TabsTrigger value="journal">Journal Articles</TabsTrigger>

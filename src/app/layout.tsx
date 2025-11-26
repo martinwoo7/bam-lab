@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Merriweather, Montserrat } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -9,13 +9,13 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserratSans = Montserrat({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const merriweatherSerif = Merriweather({
+  variable: "--font-serif",
   subsets: ["latin"],
 });
 
@@ -41,13 +41,13 @@ export default function RootLayout({
       <body
         className={cn(
           "text-foreground group/body xl:[--footer-height:calc(var(--spacing)*24)] overscroll-none [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)]",
-          `${geistSans.variable} ${geistMono.variable} antialiased`
+          `${montserratSans.variable} ${merriweatherSerif.variable} antialiased`
         )}
       >
         <SiteHeader />
         {children}
         <SiteFooter />
-        <Toaster />
+        <Toaster toastOptions={{ style: { background: "#ede9de" } }} />
       </body>
     </html>
   );

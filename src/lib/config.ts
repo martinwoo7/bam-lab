@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "BAM Lab",
+  name: "Research Laboratory",
   url: "",
   ogImage: "",
   description:
-    "Big Data and Analytics Laboratory at Queen's University in Kingston, Ontario, Canada.",
+    "This is a framework for a research laboratory for universities.",
   navItems: [
     {
       label: "Research",

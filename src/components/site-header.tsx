@@ -7,12 +7,12 @@ import Link from "next/link";
 
 const SiteHeader = () => {
   return (
-    <header className="bg-background sticky top-0 z-50 w-full">
+    <header className="bg-background sticky top-0 z-50 w-full max-w-7xl mx-auto">
       <div className="container-wrapper 3xl:px-0 px-6">
         <div className="3xl:container flex h-(--header-height) items-center justify-between gap-2">
           <MobileNav className="flex lg:hidden" items={siteConfig.navItems} />
           <Link href="/" className="flex">
-            BAM Lab Logo
+            Laboratory Logo
             <span className="sr-only">{siteConfig.name}</span>
           </Link>
 
