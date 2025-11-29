@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   output: "export", // <=== enables static exports
   reactStrictMode: true,
   // basePath: isProd ? "/bam-lab" : "",
-  // assetPrefix: isProd ? "/bam-lab/" : "",
+  assetPrefix: isProd ? "/bam-lab/" : "",
   images: {
     loader: "custom",
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

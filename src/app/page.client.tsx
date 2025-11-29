@@ -257,7 +257,7 @@ const ClientPage = () => {
               <CardContent>
                 <div className="relative w-full h-auto aspect-video">
                   <ExportedImage
-                    src={news.image ? news.image : "/imgs/meeting.png"}
+                    src={news.image ? news.image : "imgs/meeting.png"}
                     alt={"image"}
                     fill
                     className="object-center object-cover rounded-md"
