@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import {
   NavigationMenu,
@@ -50,13 +51,12 @@ const MainNav = ({
                     <NavigationMenuContent className="p-0 py-2">
                       {item.items.map((subItem, j) => (
                         <Item key={j} className="px-2 py-0">
-                          <NavigationMenuLink
-                            href={subItem.href}
-                            className="w-full"
-                          >
-                            <ItemContent>
-                              <ItemTitle>{subItem.label}</ItemTitle>
-                            </ItemContent>
+                          <NavigationMenuLink asChild className="w-full">
+                            <Link href={subItem.href}>
+                              <ItemContent>
+                                <ItemTitle>{subItem.label}</ItemTitle>
+                              </ItemContent>
+                            </Link>
                           </NavigationMenuLink>
                         </Item>
                       ))}
@@ -65,10 +65,10 @@ const MainNav = ({
                 ) : (
                   <>
                     <NavigationMenuLink
-                      href={item.href}
+                      asChild
                       className="font-medium rounded-md"
                     >
-                      {item.label}
+                      <Link href={item.href || ""}>{item.label}</Link>
                     </NavigationMenuLink>
                   </>
                 )}
@@ -79,10 +79,10 @@ const MainNav = ({
           <NavigationMenuItem className="ml-4">
             <Button asChild variant={"secondary"}>
               <NavigationMenuLink
-                href={"/contact"}
+                asChild
                 className={cn(pathname === "/contact" && "")}
               >
-                Contact
+                <Link href={"/contact"}>Contact</Link>
               </NavigationMenuLink>
             </Button>
           </NavigationMenuItem>

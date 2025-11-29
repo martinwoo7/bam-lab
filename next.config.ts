@@ -10,9 +10,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export", // <=== enables static exports
   reactStrictMode: true,
-  basePath: isProd ? basePath : "",
-  assetPrefix: isProd ? assetPrefix : "",
+  basePath: basePath,
+  assetPrefix: assetPrefix,
   images: {
+    unoptimized: true,
     loader: "custom",
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -26,7 +27,18 @@ const nextConfig: NextConfig = {
     nextImageExportOptimizer_exportFolderName: "nextImageExportOptimizer",
     nextImageExportOptimizer_generateAndUseBlurImages: "true",
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
-    nextImageExportOptimizer_basePath: isProd ? basePath : "",
+    NEXT_PUBLIC_BASE_PATH: assetPrefix,
+  },
+  // Add this redirects function
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: basePath, // Must match your basePath
+        basePath: false, // Prevents Next.js from doubling the path
+        permanent: false,
+      },
+    ];
   },
 };
 

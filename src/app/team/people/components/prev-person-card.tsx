@@ -50,9 +50,15 @@ const PrevPersonCard = ({ person }: { person: PreviousPersonProps }) => {
       <CardFooter>
         <div className="flex gap-2 items-center">
           {person.cosupervised && (
-            <Badge variant={"outline"} className="rounded-md">Co-supervised</Badge>
+            <Badge variant={"outline"} className="rounded-md">
+              Co-supervised
+            </Badge>
           )}
-          {person.eng && <Badge variant={"outline"} className="rounded-md">MEng</Badge>}
+          {person.eng && (
+            <Badge variant={"outline"} className="rounded-md">
+              MEng
+            </Badge>
+          )}
         </div>
       </CardFooter>
     </Card>

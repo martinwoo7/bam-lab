@@ -44,6 +44,8 @@ const logos = [
 const ClientPage = () => {
   const chunkedItems = chunkAlternating(logos);
   const mobileItems = splitIntoTwoRows(logos);
+  const basepath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10 space-y-10">
       {/* Hero */}
@@ -51,7 +53,7 @@ const ClientPage = () => {
         <div className="flex flex-col items-center md:items-start gap-2">
           <Badge variant={"outline"} className="rounded-lg px-4 py-2 space-x-2">
             <ExportedImage
-              src="imgs/queens_logo_cropped.png"
+              src={`${basepath}imgs/queens_logo_cropped.png`}
               alt="Queen's University Logo"
               width={100}
               height={50}
@@ -82,7 +84,7 @@ const ClientPage = () => {
 
         <div className="relative w-full lg:max-w-xl h-auto aspect-video">
           <ExportedImage
-            src="imgs/queens_university.jpg"
+            src={`${basepath}imgs/queens_university.jpg`}
             fill
             alt="Queen's University"
             className="object-cover rounded-md"
@@ -225,7 +227,7 @@ const ClientPage = () => {
 
           <div className="relative w-full lg:max-w-xl h-auto aspect-video">
             <ExportedImage
-              src="imgs/bamlab_people.png"
+              src={`${basepath}imgs/bamlab_people.png`}
               fill
               alt="BAM Lab Picnic"
               className="object-cover rounded-md"
@@ -257,7 +259,11 @@ const ClientPage = () => {
               <CardContent>
                 <div className="relative w-full h-auto aspect-video">
                   <ExportedImage
-                    src={news.image ? news.image : "imgs/meeting.png"}
+                    src={
+                      news.image
+                        ? `${basepath}${news.image}`
+                        : `${basepath}imgs/meeting.png`
+                    }
                     alt={"image"}
                     fill
                     className="object-center object-cover rounded-md"
@@ -354,7 +360,7 @@ const ClientPage = () => {
                   return (
                     <div key={i} className="relative size-20 sm:size-30">
                       <ExportedImage
-                        src={item}
+                        src={`${basepath}${item}`}
                         alt={"Icon"}
                         fill
                         className="object-contain"
@@ -376,7 +382,7 @@ const ClientPage = () => {
                 {row.map((item, i) => (
                   <div key={i} className="relative size-32">
                     <ExportedImage
-                      src={item}
+                      src={`${basepath}${item}`}
                       alt={"Icon"}
                       fill
                       className="object-contain"

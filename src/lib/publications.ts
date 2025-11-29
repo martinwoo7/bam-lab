@@ -42,7 +42,7 @@ export const Publications: PublicationProps[] = [
     ],
     venue: "JCO Clinical Cancer Informatics",
     type: "Journal",
-    link: "#",
+    link: "/#",
   },
   {
     year: 2021,
@@ -57,7 +57,7 @@ export const Publications: PublicationProps[] = [
     venue:
       "IEEE Transactions on Emerging Topics in Computational Intelligence, Special Issue on Computational Intelligence to Edge AI for Ubiquitous IoT Systems",
     type: "Journal",
-    link: "#",
+    link: "/#",
   },
   {
     year: 2021,
@@ -65,7 +65,7 @@ export const Publications: PublicationProps[] = [
     authors: ["Zafari, H.", "Zulkernine, F.", "Kosowan, L.", "Singer, A."],
     venue: "Expert Systems With Applications",
     type: "Journal",
-    link: "#",
+    link: "/#",
   },
   {
     year: 2021,
@@ -80,7 +80,7 @@ export const Publications: PublicationProps[] = [
     ],
     venue: "Journal of Bio-systems",
     type: "Journal",
-    link: "#",
+    link: "/#",
   },
   {
     year: 2020,
@@ -96,7 +96,7 @@ export const Publications: PublicationProps[] = [
     ],
     venue: "OncoTargets and Therapy",
     type: "Journal",
-    link: "#",
+    link: "/#",
   },
   {
     year: 2019,
@@ -111,6 +111,6 @@ export const Publications: PublicationProps[] = [
     ],
     venue: "IEEE Access",
     type: "Journal",
-    link: "#",
+    link: "/#",
   },
 ];
