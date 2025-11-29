@@ -2,12 +2,16 @@ import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
 
+const repo = "bam-lab";
+const assetPrefix = `/${repo}/`;
+const basePath = `/${repo}`;
+
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export", // <=== enables static exports
   reactStrictMode: true,
-  // basePath: isProd ? "/bam-lab" : "",
-  assetPrefix: isProd ? "/bam-lab/" : "",
+  basePath: isProd ? basePath : "",
+  assetPrefix: isProd ? assetPrefix : "",
   images: {
     loader: "custom",
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -22,6 +26,7 @@ const nextConfig: NextConfig = {
     nextImageExportOptimizer_exportFolderName: "nextImageExportOptimizer",
     nextImageExportOptimizer_generateAndUseBlurImages: "true",
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
+    nextImageExportOptimizer_basePath: isProd ? basePath : "",
   },
 };
 

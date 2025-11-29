@@ -51,7 +51,7 @@ const ClientPage = () => {
         <div className="flex flex-col items-center md:items-start gap-2">
           <Badge variant={"outline"} className="rounded-lg px-4 py-2 space-x-2">
             <ExportedImage
-              src="imgs/queen's_logo_cropped.png"
+              src="imgs/queens_logo_cropped.png"
               alt="Queen's University Logo"
               width={100}
               height={50}
@@ -82,7 +82,7 @@ const ClientPage = () => {
 
         <div className="relative w-full lg:max-w-xl h-auto aspect-video">
           <ExportedImage
-            src="imgs/queen's_university.jpg"
+            src="imgs/queens_university.jpg"
             fill
             alt="Queen's University"
             className="object-cover rounded-md"
