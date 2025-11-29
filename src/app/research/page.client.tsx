@@ -20,7 +20,7 @@ const ClientPage = () => {
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
           Research Areas
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
+        <p className="text-xl text-muted-foreground max-w-3xl font-serif">
           Our lab conducts cutting-edge research across multiple domains of
           artificial intelligence and machine learning.
         </p>
@@ -42,7 +42,7 @@ const ClientPage = () => {
           );
 
           return (
-            <Card className="" key={area.id}>
+            <Card className="rounded-md" key={area.id}>
               <CardHeader>
                 <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <Icon className="size-6 text-primary" />
@@ -94,7 +94,7 @@ const ClientPage = () => {
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   {active.map((project, i) => (
-                    <Card key={i}>
+                    <Card key={i} className="rounded-md">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
                           <Badge>{project.status}</Badge>
@@ -119,7 +119,7 @@ const ClientPage = () => {
                 <Separator className="my-4" />
                 <div className="grid md:grid-cols-2 gap-6">
                   {complete.map((project, i) => (
-                    <Card key={i}>
+                    <Card key={i} className="rounded-md">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
                           <Badge variant={"outline"}>{project.status}</Badge>

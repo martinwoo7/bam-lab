@@ -1,4 +1,4 @@
-import type { Person } from "@/lib/people";
+import type { PersonProps } from "@/lib/people";
 import {
   Card,
   CardHeader,
@@ -13,15 +13,19 @@ import ExportedImage from "next-image-export-optimizer";
 
 import { Mail, Globe } from "lucide-react";
 
-const PersonCard = ({ person }: { person: Person }) => {
+const PersonCard = ({ person }: { person: PersonProps }) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="aspect-square relative bg-muted">
         <ExportedImage
-          src={person.image || "/placeholder.png"}
+          src={person.image || "imgs/people/placeholder.png"}
           alt={person.name}
           fill
-          className="object-cover"
+          className="object-cover object-center"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading={
+            person.name === "Dr. Farhana H. Zulkernine" ? "eager" : undefined
+          }
         />
       </div>
       <CardHeader>

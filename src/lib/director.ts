@@ -4,10 +4,10 @@ export const director: {
   full_name: string;
   email: string;
 } = {
-  full_title: "Dr. John Doe",
-  first_name: "John",
-  full_name: "John Doe",
-  email: "john.doe@university.edu",
+  full_title: "Dr. Farhana H. Zulkernine",
+  first_name: "Farhana",
+  full_name: "Farhana H. Zulkernine",
+  email: "farhana.zulkernine@queensu.ca",
 };
 
 export const directorAwards: { year: number; name: string }[] = [
@@ -41,40 +41,53 @@ interface Conferences {
 export const directorConferences: Conferences[] = [
   {
     title: "Workshop Chair",
-    workshop: "Advances in Neural Architecture Search",
-    workshop_url: "#",
-    conference: "Computer Vision and Pattern Recognition (CVPR)",
-    conference_url: "#",
-    date: "June 18-22, 2023",
-    location: "Vancouver, Canada",
+    workshop: "Internet of Things in Healthcare Data Analytics (IoTHDA)",
+    workshop_url: "https://cs-conferences.acadiau.ca/icth-25/workshops.html",
+    conference:
+      "International Conference on Current and Future Trends in Information and Communication Technologies in Healthcare (ICTH)",
+    conference_url: "https://cs-conferences.acadiau.ca/icth-25/",
+    date: "October 28-30, 2025",
+    location: "Istanbul, Türkiye",
   },
   {
-    title: "Area Chair",
-    conference: "Neural Information Processing Systems (NeurIPS)",
-    conference_url: "#",
-    date: "December 10-16, 2024",
-    location: "New Orleans, USA",
+    title: "Track Chair",
+    workshop: "Big Data and Analytics",
+    workshop_url: "https://cs-conferences.acadiau.ca/ant-25/#workshop_approved",
+    conference:
+      "International Conference on Ambient Systems, Networks and Technologies (ANT)",
+    conference_url: "https://cs-conferences.acadiau.ca/ant-25/",
+    date: "April 22-24, 2025",
+    location: "Patras, Greece",
   },
   {
     title: "Program Chair",
-    conference: "International Conference on Machine Learning (ICML)",
-    conference_url: "#",
-    date: "July 21-27, 2025",
-    location: "Vancouver, Canada",
+    conference:
+      "Canadian Artificial Intelligence Association (CAIAC) Conference",
+    conference_url: "https://www.caiac.ca/en/conferences/canadianai-2023/home",
+    date: "June 5-9, 2023",
+    location: "Montréal, Canada",
   },
   {
     title: "Program Chair",
     conference: "IEEE International Conference on Digital Health (ICDH)",
-    conference_url: "https://conferences.computer.org/services/2021/",
-    date: "September 5-11, 2021",
+    conference_url: "https://conferences.computer.org/icdh/2022/",
+    date: "July 11-15, 2022",
     location: "Barcelona, Spain",
   },
   {
-    title: "Senior Program Committee Member",
-    conference: "AAAI Conference on Artificial Intelligence",
-    conference_url: "#",
-    date: "February 7-14, 2022",
-    location: "Virtual Conference",
+    title: "Program Chair",
+    conference: "IEEE International Conference on Digital Health (ICDH)",
+    conference_url: "https://conferences.computer.org/icdh/2021/",
+    date: "September 5-11, 2021",
+    location: "Virtual",
+  },
+  {
+    title: "Program Chair",
+    conference: "IBM International Conference CASCON X EVOKE",
+    conference_url:
+      "https://www-40.ibm.com/ibm/cas/canada/newsletter/202201.pdf",
+    date: "November 22-25, 2021",
+    location: "Virtual",
   },
 ];
 
@@ -98,7 +111,10 @@ export const directorApplications = [
 ];
 
 export const directorMembership = [
-  "ACM Fellow",
-  "IEEE Senior Member",
-  "AAAI Member",
+  "CAIAC",
+  "SOSCIP Scientific Committee ",
+  "PEO",
+  "Queen's Conflicts Analytics Lab",
+  "IEEE Computer Society",
+  "INSTICC",
 ];

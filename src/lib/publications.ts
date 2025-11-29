@@ -10,90 +10,107 @@ export const notableVenues: string[] = [
   "Science",
 ];
 
-export const publications = [
+export interface PublicationProps {
+  year: number;
+  title: string;
+  authors: string[];
+  venue: string;
+  type: "Journal" | "Conference" | "Workshop" | "Book";
+  award?: string;
+  abstract?: string;
+  link: string;
+}
+
+export const Publications: PublicationProps[] = [
   {
-    year: 2025,
-    title: "Advances in Transformer Architecture for Multi-Modal Learning",
-    authors: "Smith, J., Johnson, A., Williams, R.",
-    venue: "Neural Information Processing Systems (NeurIPS)",
-    type: "Conference",
-    award: "Best Paper Award",
-    citations: 45,
-  },
-  {
-    year: 2024,
-    title: "Efficient Training Methods for Large Language Models",
-    authors: "Chen, L., Davis, M., Anderson, K.",
-    venue: "International Conference on Machine Learning (ICML)",
-    type: "Conference",
-    citations: 128,
-  },
-  {
-    year: 2024,
+    year: 2021,
     title:
-      "Self-Supervised Learning for Computer Vision: A Comprehensive Survey",
-    authors: "Smith, J., Lee, D., Rodriguez, E.",
-    venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "Natural Language Processing of Large-Scale Structured Radiology Reports to Identify Oncologic Patients With or Without Splenomegaly over a Ten-Year Period",
+    authors: [
+      "Sun, S.",
+      "Lupton, K.",
+      "Batch, K.",
+      "Nguyen, H.",
+      "Gazit, L.",
+      "Gangai, N.",
+      "Cho, J.",
+      "Nicholas, K.",
+      "Zulkernine, F.",
+      "Sevilimedu, V.",
+      "Simpson, A.",
+      "Do, R.",
+    ],
+    venue: "JCO Clinical Cancer Informatics",
     type: "Journal",
-    citations: 203,
+    link: "#",
   },
   {
-    year: 2024,
-    title: "Federated Learning with Privacy Guarantees",
-    authors: "Patel, P., Wilson, J., Chen, M.",
-    venue: "Conference on Computer Vision and Pattern Recognition (CVPR)",
-    type: "Conference",
-    citations: 87,
-  },
-  {
-    year: 2023,
-    title: "Neural Architecture Search: A Survey",
-    authors: "Smith, J., Anderson, T., Kim, A.",
-    venue: "Journal of Machine Learning Research",
-    type: "Journal",
-    citations: 456,
-  },
-  {
-    year: 2023,
-    title:
-      "Advances in Natural Language Understanding Through Self-Supervised Learning",
-    authors: "Smith, J., Anderson, K., Chen, L.",
-    venue: "Association for Computational Linguistics (ACL)",
-    type: "Conference",
-    award: "Outstanding Paper",
-    citations: 312,
-  },
-  {
-    year: 2023,
-    title: "Explainable AI for Medical Diagnosis",
-    authors: "Lee, D., Garcia, M., Johnson, S.",
-    venue: "Nature Medicine",
-    type: "Journal",
-    citations: 189,
-  },
-  {
-    year: 2023,
-    title: "Multi-Agent Reinforcement Learning in Complex Environments",
-    authors: "Wilson, J., Rodriguez, E., Chen, M.",
+    year: 2021,
+    title: "ReViSe: Remote Vital Signs Measurement Using Smartphone Camera",
+    authors: [
+      "Qiao, D.",
+      "Ayesha, A.",
+      "Zulkernine, F.",
+      "Masroor, R.",
+      "Jaffar, N.",
+    ],
     venue:
-      "International Conference on Autonomous Agents and Multiagent Systems (AAMAS)",
-    type: "Conference",
-    citations: 94,
-  },
-  {
-    year: 2022,
-    title: "Graph Neural Networks for Knowledge Graph Completion",
-    authors: "Wilson, J., Patel, P., Smith, J.",
-    venue: "International Conference on Learning Representations (ICLR)",
-    type: "Conference",
-    citations: 267,
-  },
-  {
-    year: 2022,
-    title: "Fairness and Bias in Machine Learning: A Critical Review",
-    authors: "Garcia, M., Smith, J., Anderson, K.",
-    venue: "ACM Computing Surveys",
+      "IEEE Transactions on Emerging Topics in Computational Intelligence, Special Issue on Computational Intelligence to Edge AI for Ubiquitous IoT Systems",
     type: "Journal",
-    citations: 534,
+    link: "#",
+  },
+  {
+    year: 2021,
+    title: "Text Encoding Models for Medical Data Analytics",
+    authors: ["Zafari, H.", "Zulkernine, F.", "Kosowan, L.", "Singer, A."],
+    venue: "Expert Systems With Applications",
+    type: "Journal",
+    link: "#",
+  },
+  {
+    year: 2021,
+    title:
+      "Automated Assessment of EMR Data for COPD Screening Using Machine Learning Algorithms",
+    authors: [
+      "Zafari, H.",
+      "Kosowan, L.",
+      "Zulkernine, F.",
+      "Langlois, S.",
+      "Singer, A.",
+    ],
+    venue: "Journal of Bio-systems",
+    type: "Journal",
+    link: "#",
+  },
+  {
+    year: 2020,
+    title:
+      "Impact of fucosylation on self-assembly of prostate and breast tumor spheroids by using cyclo-RGDfK(TPP) peptide and image object detection",
+    authors: [
+      "Kalaydina, RV.",
+      "Zhou, H.",
+      "Markvicheva, E.",
+      "Burov, S.",
+      "Zulkernine, F.",
+      "Szewczuk, M.",
+    ],
+    venue: "OncoTargets and Therapy",
+    type: "Journal",
+    link: "#",
+  },
+  {
+    year: 2019,
+    title:
+      "Processing Real Time Data Streams: A Survey of Streaming Data Processing Engines",
+    authors: [
+      "Isah, H.",
+      "Abughofa, T.",
+      "Mahfuz, S.",
+      "Ajerla D.",
+      "Zulkernine F.",
+    ],
+    venue: "IEEE Access",
+    type: "Journal",
+    link: "#",
   },
 ];

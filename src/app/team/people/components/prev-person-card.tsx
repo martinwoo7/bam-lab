@@ -7,9 +7,9 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import type { PreviousPerson } from "@/lib/people";
+import type { PreviousPersonProps } from "@/lib/people";
 
-const PrevPersonCard = ({ person }: { person: PreviousPerson }) => {
+const PrevPersonCard = ({ person }: { person: PreviousPersonProps }) => {
   return (
     <Card className="overflow-hidden">
       <CardHeader>
@@ -50,9 +50,9 @@ const PrevPersonCard = ({ person }: { person: PreviousPerson }) => {
       <CardFooter>
         <div className="flex gap-2 items-center">
           {person.cosupervised && (
-            <Badge variant={"outline"}>Co-supervised</Badge>
+            <Badge variant={"outline"} className="rounded-md">Co-supervised</Badge>
           )}
-          {person.eng && <Badge variant={"outline"}>MEng</Badge>}
+          {person.eng && <Badge variant={"outline"} className="rounded-md">MEng</Badge>}
         </div>
       </CardFooter>
     </Card>

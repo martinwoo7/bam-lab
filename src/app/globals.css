@@ -12,7 +12,7 @@
   --popover-foreground: #28261b;
   --primary: #284b63;
   --primary-foreground: #ffffff;
-  --secondary: #EEF0EB;
+  --secondary: #eef0eb;
   --secondary-foreground: #45453b;
   --muted: #ede9de;
   --muted-foreground: #696963;
@@ -194,5 +194,5 @@
 }
 
 @utility container {
-  @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-4 lg:px-8;
+  @apply 3xl:max-w-screen-2xl mx-auto max-w-7xl px-4 lg:px-8;
 }

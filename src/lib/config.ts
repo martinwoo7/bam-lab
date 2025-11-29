@@ -13,6 +13,10 @@ export const siteConfig = {
       ],
     },
     {
+      href: "/publications",
+      label: "Publications",
+    },
+    {
       label: "Team",
       items: [
         { href: "/team/director", label: "Director" },
@@ -20,8 +24,8 @@ export const siteConfig = {
       ],
     },
     {
-      href: "/publications",
-      label: "Publications",
+      label: "News",
+      href: "/news",
     },
   ],
   footerItems: [
@@ -33,8 +37,8 @@ export const siteConfig = {
     { href: "/wiki", label: "Wiki" },
     { href: "/contact", label: "Contact" },
   ],
-  links: {
-    website:
-      "https://www.calicode.dev/?utm_source=bam_lab&utm_medium=web&utm_campaign=footer_cta",
-  },
+  // links: {
+  //   website:
+  //     "https://calicode.dev/?utm_source=bamlab_site&utm_medium=web&utm_campaign=footer_built_by_callout",
+  // },
 };

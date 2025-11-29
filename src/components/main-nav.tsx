@@ -50,7 +50,10 @@ const MainNav = ({
                     <NavigationMenuContent className="p-0 py-2">
                       {item.items.map((subItem, j) => (
                         <Item key={j} className="px-2 py-0">
-                          <NavigationMenuLink href={"#"} className="w-full">
+                          <NavigationMenuLink
+                            href={subItem.href}
+                            className="w-full"
+                          >
                             <ItemContent>
                               <ItemTitle>{subItem.label}</ItemTitle>
                             </ItemContent>
@@ -61,7 +64,10 @@ const MainNav = ({
                   </>
                 ) : (
                   <>
-                    <NavigationMenuLink className="font-medium">
+                    <NavigationMenuLink
+                      href={item.href}
+                      className="font-medium rounded-md"
+                    >
                       {item.label}
                     </NavigationMenuLink>
                   </>

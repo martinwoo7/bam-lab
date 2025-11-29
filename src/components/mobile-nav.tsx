@@ -18,6 +18,14 @@ import {
   DrawerClose,
 } from "./ui/drawer";
 
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./ui/accordion";
+import { Item, ItemContent, ItemTitle } from "./ui/item";
+
 interface SubItems {
   href: string;
   label: string;
@@ -92,7 +100,30 @@ export function MobileNav({
                     </MobileLink>
                   );
                 } else {
-                  return null;
+                  return (
+                    <Accordion collapsible type="single" key={item.label}>
+                      <AccordionItem value={item.label}>
+                        <AccordionTrigger className="text-2xl font-medium">
+                          {item.label}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          {item.items &&
+                            item.items.length > 0 &&
+                            item.items.map((subItem) => (
+                              <Item asChild key={subItem.label}>
+                                <MobileLink
+                                  href={subItem.href}
+                                  key={subItem.href}
+                                  className="text-xl"
+                                >
+                                  {subItem.label}
+                                </MobileLink>
+                              </Item>
+                            ))}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  );
                 }
               })}
             </div>
@@ -122,7 +153,7 @@ function MobileLink({
         router.push(href.toString());
         onOpenChange?.(false);
       }}
-      className={cn("text-2xl font-medium", className)}
+      className={cn("text-2xl font-medium hover:underline", className)}
       {...props}
     >
       {children}

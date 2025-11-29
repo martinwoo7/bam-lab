@@ -13,8 +13,10 @@ const ClientPage = () => {
   return (
     <div className="container py-12">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Our Team</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+          Our Team
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl font-serif">
           Meet the talented researchers, students, and collaborators driving
           innovation in our lab
         </p>
@@ -76,8 +78,8 @@ const ClientPage = () => {
 
         <TabsContent value="phd" className="space-y-12">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {People.phd.length >= 1 ? (
-              People.phd.map((person) => (
+            {People.phD.length >= 1 ? (
+              People.phD.map((person) => (
                 <PersonCard key={person.name} person={person} />
               ))
             ) : (
