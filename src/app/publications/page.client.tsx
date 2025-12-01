@@ -205,21 +205,23 @@ const ClientPage = ({
           <>
             {years.map((year) => {
               const items = filteredResults.filter((p) => p.year === year);
-              return (
-                <section key={year}>
-                  {items && items.length > 0 && (
-                    <h2 className="text-2xl font-bold mb-4">{year}</h2>
-                  )}
+              if (items && items.length > 0) {
+                return (
+                  <section key={year}>
+                    {items && items.length > 0 && (
+                      <h2 className="text-2xl font-bold mb-4">{year}</h2>
+                    )}
 
-                  <div className="grid gap-6">
-                    {items.map((pub, idx) => (
-                      <div key={idx}>
-                        <PublicationCard key={idx} pub={pub} />
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              );
+                    <div className="grid gap-6">
+                      {items.map((pub, idx) => (
+                        <div key={idx}>
+                          <PublicationCard key={idx} pub={pub} />
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                );
+              }
             })}
           </>
         )}
