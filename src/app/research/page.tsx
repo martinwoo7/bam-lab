@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ClientPage from "./page.client";
 
 export const metadata: Metadata = {
-  title: "Projects | BAM Lab",
+  title: "Projects | Queen's BAM Lab",
   description: "Lorem ipsum",
 };
 

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import ExportedImage from "next-image-export-optimizer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,13 +13,19 @@ import {
   CardContent,
 } from "@/components/ui/card";
 
-import { ArrowRight, File, SquareArrowOutUpRight } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  File,
+  SquareArrowOutUpRight,
+} from "lucide-react";
 
 import { openPositions } from "@/lib/positions";
 import { chunkAlternating, splitIntoTwoRows } from "@/lib/utils";
 
 import { News } from "@/lib/news";
-import { Publications } from "@/lib/publications";
+// import { Publications } from "@/lib/publications";
+import type { EnrichedPublication } from "./publications/page.client";
 
 const logos = [
   "imgs/logos/CAC-logo.png",
@@ -41,7 +48,11 @@ const logos = [
   "imgs/logos/UM-logo.png",
 ];
 
-const ClientPage = () => {
+const ClientPage = ({
+  publications,
+}: {
+  publications: EnrichedPublication[];
+}) => {
   const chunkedItems = chunkAlternating(logos);
   const mobileItems = splitIntoTwoRows(logos);
   const basepath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -247,29 +258,36 @@ const ClientPage = () => {
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
           {News.slice(0, 6).map((news, i) => (
             <Card key={i} className="rounded-md">
+              <div className="relative aspect-16/10 overflow-hidden">
+                <ExportedImage
+                  src={
+                    news.image
+                      ? `${basepath}${news.image}`
+                      : `${basepath}imgs/meeting.png`
+                  }
+                  alt={news.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
               <CardHeader>
-                <CardTitle>
-                  <Badge variant={"secondary"} className="mb-2 rounded-md">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Calendar className="size-4" />
+                  {news.date}
+                </div>
+                <CardTitle className="leading-tight text-lg">
+                  {/* <Badge variant={"secondary"} className="mb-2 rounded-md">
                     {news.date}
-                  </Badge>
+                  </Badge> */}
 
                   <p className="font-medium">{news.title}</p>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative w-full h-auto aspect-video">
-                  <ExportedImage
-                    src={
-                      news.image
-                        ? `${basepath}${news.image}`
-                        : `${basepath}imgs/meeting.png`
-                    }
-                    alt={"image"}
-                    fill
-                    className="object-center object-cover rounded-md"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
+                <p className="text-muted-foreground leading-relaxed text-sm font-serif line-clamp-3">
+                  {news.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -300,7 +318,7 @@ const ClientPage = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-8 w-full">
-          {Publications.slice(0, 4).map((publication, i) => (
+          {publications.map((publication, i) => (
             <Card className="w-full rounded-md" key={i}>
               <CardHeader>
                 <div className="flex gap-2">
@@ -318,10 +336,22 @@ const ClientPage = () => {
               </CardHeader>
               <CardContent className="font-serif">
                 <p className="text-muted-foreground text-sm mb-2">
-                  {publication.authors}
+                  {publication.enrichedAuthors.map((author, j) => (
+                    <Fragment key={j}>
+                      <span
+                        className={
+                          author.isLabMember ? "underline font-bold" : ""
+                        }
+                      >
+                        {author.name}
+                      </span>
+                      {j < publication.enrichedAuthors.length - 1 ? ", " : ""}
+                    </Fragment>
+                  ))}
                 </p>
                 <p className="text-muted-foreground text-xs">
-                  Published in: {publication.venue}
+                  <span className="font-medium">Published in:</span>{" "}
+                  {publication.venue}
                 </p>
               </CardContent>
               <CardFooter className="flex gap-2">
@@ -329,16 +359,18 @@ const ClientPage = () => {
                   <File />
                   PDF
                 </Button>
-                <Button
-                  size={"sm"}
-                  asChild
-                  className="text-xs"
-                  variant={"outline"}
-                >
-                  <Link href={publication.link}>
-                    <SquareArrowOutUpRight /> Link
-                  </Link>
-                </Button>
+                {publication.link && (
+                  <Button
+                    size={"sm"}
+                    asChild
+                    className="text-xs"
+                    variant={"outline"}
+                  >
+                    <Link href={publication.link}>
+                      <SquareArrowOutUpRight /> Link
+                    </Link>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}

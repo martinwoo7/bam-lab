@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
-import { X, Menu } from "lucide-react";
+import { X } from "lucide-react";
 
 import {
   Drawer,
@@ -24,7 +24,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "./ui/accordion";
-import { Item, ItemContent, ItemTitle } from "./ui/item";
+import { Item } from "./ui/item";
 
 interface SubItems {
   href: string;

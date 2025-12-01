@@ -15,7 +15,7 @@ import { Separator } from "@/components/ui/separator";
 
 const ClientPage = () => {
   return (
-    <div className="container py-12">
+    <div className="container py-12 max-w-7xl">
       <div className="mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
           Research Areas
@@ -51,10 +51,10 @@ const ClientPage = () => {
                 <CardDescription>{area.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col min-[360px]:flex-row gap-2">
-                <Badge variant={"secondary"}>
+                <Badge variant={"secondary"} className="rounded-md">
                   {active.length} Active Projects
                 </Badge>
-                <Badge variant={"secondary"}>
+                <Badge variant={"secondary"} className="rounded-md">
                   {complete.length} Completed Projects
                 </Badge>
               </CardContent>
@@ -97,11 +97,11 @@ const ClientPage = () => {
                     <Card key={i} className="rounded-md">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
-                          <Badge>{project.status}</Badge>
+                          <Badge className="rounded-md">{project.status}</Badge>
                           {project.funding.length >= 1 && (
                             <div className="space-x-2">
                               {project.funding.map((fund, j) => (
-                                <Badge variant={"secondary"} key={j}>
+                                <Badge variant={"secondary"} key={j} className="rounded-md">
                                   {fund}
                                 </Badge>
                               ))}
@@ -122,7 +122,7 @@ const ClientPage = () => {
                     <Card key={i} className="rounded-md">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
-                          <Badge variant={"outline"}>{project.status}</Badge>
+                          <Badge variant={"outline"} className="rounded-md">{project.status}</Badge>
                           {project.funding.length >= 1 && (
                             <div className="space-x-2">
                               {project.funding.map((fund, j) => (

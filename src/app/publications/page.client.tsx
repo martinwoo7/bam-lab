@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo, Fragment } from "react";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -20,25 +21,23 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { Award, ExternalLink, FileText, Search } from "lucide-react";
+import {
+  Award,
+  ExternalLink,
+  FileText,
+  Search,
+  BookMarked,
+} from "lucide-react";
 
-import { notableVenues } from "@/lib/publications";
+import { notableVenues, PublicationProps } from "@/lib/publications";
 
 import Fuse from "fuse.js";
 
-type EnrichedPublication = {
+export type EnrichedPublication = PublicationProps & {
   enrichedAuthors: {
     name: string;
     isLabMember: boolean;
   }[];
-  year: number;
-  title: string;
-  authors: string[];
-  venue: string;
-  type: "Conference" | "Journal" | "Workshop" | "Book";
-  award?: string | undefined;
-  abstract?: string | undefined;
-  link: string;
 };
 
 const ClientPage = ({
@@ -97,7 +96,7 @@ const ClientPage = ({
     (a, b) => b - a
   );
   return (
-    <div className="container py-12">
+    <div className="container py-12 max-w-7xl">
       <div className="mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
           Publications
@@ -109,6 +108,12 @@ const ClientPage = ({
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 lg:gap-6 mb-12">
+        <Card>
+          <CardHeader className="pb-3">
+            <CardDescription>Total Citations</CardDescription>
+            <CardTitle className="text-4xl text-primary">4000+</CardTitle>
+          </CardHeader>
+        </Card>
         <Card className=" rounded-md">
           <CardHeader>
             <CardDescription>Total Publications</CardDescription>
@@ -164,6 +169,7 @@ const ClientPage = ({
                 <SelectItem value="Conference">Conferences</SelectItem>
                 <SelectItem value="Workshop">Workshops</SelectItem>
                 <SelectItem value="Book">Books</SelectItem>
+                <SelectItem value="Book Chapter">Book Chapters</SelectItem>
                 <SelectItem value="Award">Award Winning</SelectItem>
               </SelectGroup>
             </SelectContent>
@@ -246,15 +252,24 @@ const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
           </Badge>
 
           <div className="flex gap-2 max-sm:mt-2">
+            <Badge variant={"outline"} className=" rounded-md">
+              {pub.type}
+            </Badge>
+            {pub.specialIssue && (
+              <Badge
+                variant="outline"
+                className="border-primary/50 text-primary rounded-md"
+              >
+                <BookMarked className="h-3 w-3 mr-1" />
+                Special Issue
+              </Badge>
+            )}
             {pub.award && (
               <Badge className="bg-primary hover:cursor-default rounded-md">
                 <Award className="size-3 mr-1" />
                 {pub.award}
               </Badge>
             )}
-            <Badge variant={"outline"} className=" rounded-md">
-              {pub.type}
-            </Badge>
           </div>
         </div>
 
@@ -272,18 +287,43 @@ const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="text-sm text-muted-foreground">
-          <span>Published in:</span> {pub.venue}
+          <span className="font-medium">Published in:</span> {pub.venue}
+          {pub.workshop && (
+            <div className="border-l border-muted-foreground pl-2">
+              {pub.workshop}
+            </div>
+          )}
+          {pub.specialIssue && (
+            <div className="text-primary/80 italic">
+              {/* <span className="font-medium not-italic">Special Issue:</span>{" "} */}
+              {pub.specialIssue}
+            </div>
+          )}
         </div>
+
         <div className="flex items-center justify-between">
           <div className="flex gap-2">
-            <Button size="sm" variant={"outline"}>
+            <Button
+              size="sm"
+              variant={"outline"}
+              data-umami-event={`Publication PDF Download`}
+            >
               <FileText className="size-4 mr-2" />
               PDF
             </Button>
-            <Button size="sm" variant={"outline"}>
-              <ExternalLink className="size-4 mr-2" />
-              Link
-            </Button>
+            {pub.link && (
+              <Button
+                size="sm"
+                asChild
+                variant={"outline"}
+                data-umami-event={`Publication Link Click`}
+              >
+                <Link href={pub.link}>
+                  <ExternalLink className="size-4 mr-2" />
+                  Link
+                </Link>
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>

@@ -3,6 +3,7 @@
 import { Copy, Check } from "lucide-react";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 type Props = {
   text?: string;
@@ -25,19 +26,23 @@ const CopyButton: React.FC<Props> = ({
   };
 
   return (
-    <p
+    <Button
+      asChild
+      variant={"link"}
       className={cn(
-        "flex items-center gap-x-2 cursor-pointer text-muted-foreground hover:text-foreground duration-200",
+        "cursor-pointer text-muted-foreground hover:text-foreground duration-200 px-0",
         className
       )}
       onClick={() => handleCopy()}
       {...props}
     >
-      {text}
-      <span>
-        {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
-      </span>
-    </p>
+      <div className="flex items-center gap-x-2">
+        {text}
+        <span>
+          {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
+        </span>
+      </div>
+    </Button>
   );
 };
 
