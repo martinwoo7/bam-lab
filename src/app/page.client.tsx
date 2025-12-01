@@ -82,7 +82,7 @@ const ClientPage = ({
           </h3>
           <div className="flex gap-2">
             <Button size={"sm"} asChild className="group">
-              <Link href={"/research-areas"}>
+              <Link href={"/research"}>
                 Explore Research
                 <ArrowRight className="group-hover:translate-x-1 duration-200" />
               </Link>
