@@ -1,13 +1,13 @@
 export const notableVenues: string[] = [
-  "NeurIPS",
-  "ICML",
-  "ICLR",
-  "CVPR",
-  "ACL",
-  "AAAI",
-  "IJCAI",
-  "Nature",
-  "Science",
+  "CSUR",
+  "IEEE Access",
+  "IEEE TETCI",
+  "Radiology",
+  "SIGKDD",
+  "ICDM",
+  "ICMLA",
+  "ICDE",
+  "BIBM",
 ];
 
 export interface PublicationProps {
@@ -1134,5 +1134,65 @@ export const Publications: PublicationProps[] = [
     specialIssue:
       "Special Issue on Autonomic Computing Systems and Applications",
     type: "Journal",
+  },
+  {
+    year: 2009,
+    title:
+      "Web Services-Based Composite Business Process Management - Service Level Agreement Negotiation and Monitoring: Concepts, Methodologies and Current Practices towards Innovation",
+    authors: ["Zulkernine, F."],
+    venue: "VDM Verlag",
+    type: "Book",
+    link: "https://www.amazon.ca/Services-Based-Composite-Business-Process-Management/dp/3639201272",
+  },
+  {
+    year: 2020,
+    title:
+      '"Using Deep Learning with Canadian Primary Care Data for Disease Diagnosis"',
+    authors: [
+      "Lam, J.",
+      "Kosowan, L.",
+      "Zafari, H.",
+      "Peeler, W.",
+      "Gasmallah, M.",
+      "Zulkernine, F.",
+      "Singer, A.",
+    ],
+    venue:
+      "Deep Learning for Biomedical Data Analysis: Techniques, Approaches and Application, part 3",
+    type: "Book Chapter",
+  },
+  {
+    year: 2009,
+    title: '"Web Services Management: Towards Efficient Web Data Access"',
+    authors: ["Zulkernine, F.", "Martin, P.", "(Eds.) Kelley G."],
+    venue:
+      "Selected Readings on Information Technology Management: Contemporary Issues, Information Science Reference",
+    type: "Book Chapter",
+  },
+  {
+    year: 2009,
+    title: '"Web Services Management: Towards Efficient Web Data Access"',
+    authors: [
+      "Zulkernine, F.",
+      "Martin, P.",
+      "Powley, W.",
+      "(Eds.) Denko, M.",
+      "Yang, L.",
+      "Zhang, Y.",
+    ],
+    venue: "Autonomic Computing and Networking, part 2",
+    type: "Book Chapter",
+  },
+  {
+    year: 2006,
+    title: '"Web Services Management: Towards Efficient Web Data Access"',
+    authors: [
+      "Zulkernine, F.",
+      "Martin, P.",
+      "(Eds.) Vakali, A.",
+      "Pallis, G.",
+    ],
+    venue: "Web Data Management Practices: Emerging Techniques and Technologies",
+    type: "Book Chapter",
   },
 ];

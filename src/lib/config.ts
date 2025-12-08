@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Research Laboratory",
+  name: "BAM Lab | Queen's University",
   url: "",
   ogImage: "",
   description:
@@ -9,7 +9,7 @@ export const siteConfig = {
       label: "Research",
       items: [
         { href: "/research", label: "Research Areas" },
-        { href: "/research/research-tools", label: "Research Tools" },
+        // { href: "/research/research-tools", label: "Research Tools" },
       ],
     },
     {

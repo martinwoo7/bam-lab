@@ -38,7 +38,7 @@ const MainNav = ({
   return (
     // TODO: Change viewport for mobile
     <NavigationMenu viewport={false}>
-      <NavigationMenuList>
+      <NavigationMenuList className="">
         <nav className={cn("items-center gap-0.5", className)} {...props}>
           {items.map((item, i) => {
             const isActive = pathname === item.href;
@@ -47,14 +47,14 @@ const MainNav = ({
               <NavigationMenuItem key={i}>
                 {item.items && item.items.length > 0 ? (
                   <>
-                    <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="text-base">{item.label}</NavigationMenuTrigger>
                     <NavigationMenuContent className="p-0 py-2">
                       {item.items.map((subItem, j) => (
                         <Item key={j} className="px-2 py-0">
-                          <NavigationMenuLink asChild className="w-full">
+                          <NavigationMenuLink asChild className="w-full ">
                             <Link href={subItem.href}>
                               <ItemContent>
-                                <ItemTitle>{subItem.label}</ItemTitle>
+                                <ItemTitle className="text-base">{subItem.label}</ItemTitle>
                               </ItemContent>
                             </Link>
                           </NavigationMenuLink>
@@ -66,7 +66,7 @@ const MainNav = ({
                   <>
                     <NavigationMenuLink
                       asChild
-                      className="font-medium rounded-md"
+                      className="font-medium rounded-md text-base"
                     >
                       <Link href={item.href || ""}>{item.label}</Link>
                     </NavigationMenuLink>
@@ -80,7 +80,7 @@ const MainNav = ({
             <Button asChild variant={"secondary"}>
               <NavigationMenuLink
                 asChild
-                className={cn(pathname === "/contact" && "")}
+                className={cn(pathname === "/contact" && "", "text-base")}
               >
                 <Link href={"/contact"}>Contact</Link>
               </NavigationMenuLink>

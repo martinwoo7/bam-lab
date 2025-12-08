@@ -14,7 +14,7 @@ const SiteFooter = () => {
 
         <div className="flex flex-col sm:flex-row gap-8">
           <div className="space-y-2">
-            <p className="text-primary text-sm font-medium">Quick Links</p>
+            <p className="text-primary text-sm font-semibold">Quick Links</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 gap-x-4 font-serif text-muted-foreground">
               {siteConfig.footerItems.map((item, i) => (
                 <Link href={item.href} key={i} className="group">
@@ -27,7 +27,7 @@ const SiteFooter = () => {
           </div>
 
           <div className="space-y-2">
-            <p className="text-primary text-sm font-medium">Location</p>
+            <p className="text-primary text-sm font-semibold">Location</p>
             <div className="flex flex-col gap-1 font-serif text-muted-foreground text-sm">
               <p>Queen&apos;s University</p>
               <p>633 Goodwin Hall</p>

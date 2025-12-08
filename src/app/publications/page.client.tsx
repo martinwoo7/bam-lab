@@ -245,8 +245,24 @@ const ClientPage = ({
 };
 
 const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
+  const getBorderColor = (type: string) => {
+    switch (type) {
+      case "Journal":
+        return "border-l-primary";
+      case "Conference":
+        return "border-l-primary/70";
+      case "Workshop":
+        return "border-l-primary/40";
+      case "Book":
+      case "Book Chapter":
+        return "border-l-primary/30";
+      default:
+        return "border-l-primary/20";
+    }
+  };
+
   return (
-    <Card className=" rounded-md">
+    <Card className={`rounded-md border-l-4 ${getBorderColor(pub.type)}`}>
       <CardHeader>
         <div className="sm:flex items-center justify-between">
           <Badge variant={"secondary"} className=" rounded-md">
@@ -267,7 +283,7 @@ const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
               </Badge>
             )}
             {pub.award && (
-              <Badge className="bg-primary hover:cursor-default rounded-md">
+              <Badge className="bg-chart-1 hover:cursor-default rounded-md">
                 <Award className="size-3 mr-1" />
                 {pub.award}
               </Badge>
@@ -289,7 +305,10 @@ const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="text-sm text-muted-foreground">
-          <span className="font-medium">Published in:</span> {pub.venue}
+          <span className="font-medium">
+            {pub.type !== "Book" ? "Published in:" : "Published by:"}
+          </span>{" "}
+          {pub.venue}
           {pub.workshop && (
             <div className="border-l border-muted-foreground pl-2">
               {pub.workshop}
