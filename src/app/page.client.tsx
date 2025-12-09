@@ -125,7 +125,7 @@ const ClientPage = ({
               </p>
             </div>
             <div className="text-center">
-              <p className="font-bold text-primary text-5xl">300+</p>
+              <p className="font-bold text-primary text-5xl">4000+</p>
               <p className="font-serif text-sm text-muted-foreground mt-1">
                 Citations
               </p>

@@ -81,7 +81,9 @@ const ClientPage = ({
       results = fuse.search(query).map((result) => result.item);
     }
 
-    if (selectedType !== "All") {
+    if (selectedType === "Award") {
+      results = results.filter((pub) => pub.award);
+    } else if (selectedType !== "All") {
       results = results.filter((pub) => pub.type === selectedType);
     }
 

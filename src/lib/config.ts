@@ -30,7 +30,7 @@ export const siteConfig = {
   ],
   footerItems: [
     { href: "/research", label: "Research Areas" },
-    { href: "/research/research-tools", label: "Research Tools" },
+    // { href: "/research/research-tools", label: "Research Tools" },
     { href: "/publications", label: "Publications" },
     { href: "/team/director", label: "Director" },
     { href: "/team/people", label: "People" },
