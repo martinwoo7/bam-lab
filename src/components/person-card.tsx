@@ -11,18 +11,15 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
 
-import { Mail, Globe } from "lucide-react";
+import { Mail, Globe, Linkedin } from "lucide-react";
 
 const PersonCard = ({ person }: { person: PersonProps }) => {
-  const basepath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="aspect-square relative bg-muted">
         <ExportedImage
           src={
-            person.image
-              ? `${basepath}${person.image}`
-              : `${basepath}imgs/people/placeholder.png`
+            person.image ? `${person.image}` : `/imgs/people/placeholder.png`
           }
           alt={person.name}
           fill
@@ -72,6 +69,19 @@ const PersonCard = ({ person }: { person: PersonProps }) => {
               <Link href={person.website}>
                 <Globe className="size-4 mr-2" />
                 Website
+              </Link>
+            </Button>
+          )}
+          {person.linkedin && (
+            <Button
+              asChild
+              size="sm"
+              variant={"outline"}
+              className="bg-transparent"
+            >
+              <Link href={person.linkedin}>
+                <Linkedin className="size-4 mr-2" />
+                LinkedIn
               </Link>
             </Button>
           )}

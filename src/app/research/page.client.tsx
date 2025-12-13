@@ -93,28 +93,42 @@ const ClientPage = () => {
                   <p className="text-muted-foreground">{area.description}</p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
-                  {active.map((project, i) => (
-                    <Card key={i} className="rounded-md">
-                      <CardHeader>
-                        <div className="flex items-start justify-between mb-2">
-                          <Badge className="rounded-md">{project.status}</Badge>
-                          {project.funding.length >= 1 && (
-                            <div className="space-x-2">
-                              {project.funding.map((fund, j) => (
-                                <Badge variant={"secondary"} key={j} className="rounded-md">
-                                  {fund}
-                                </Badge>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                        <CardTitle className="text-lg">
-                          {project.title}
-                        </CardTitle>
-                        {/* <CardDescription>{project.description}</CardDescription> */}
-                      </CardHeader>
-                    </Card>
-                  ))}
+                  {active.length === 0 ? (
+                    <div className="col-span-full py-12 text-center bg-muted/30 rounded-lg border border-dashed border-muted-foreground/20">
+                      <p className="text-muted-foreground font-serif italic">
+                        No active projects in this category at the moment.
+                      </p>
+                    </div>
+                  ) : (
+                    active.map((project, i) => (
+                      <Card key={i} className="rounded-md">
+                        <CardHeader>
+                          <div className="flex items-start justify-between mb-2">
+                            <Badge className="rounded-md">
+                              {project.status}
+                            </Badge>
+                            {project.funding.length >= 1 && (
+                              <div className="space-x-2">
+                                {project.funding.map((fund, j) => (
+                                  <Badge
+                                    variant={"secondary"}
+                                    key={j}
+                                    className="rounded-md"
+                                  >
+                                    {fund}
+                                  </Badge>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                          <CardTitle className="text-lg">
+                            {project.title}
+                          </CardTitle>
+                          {/* <CardDescription>{project.description}</CardDescription> */}
+                        </CardHeader>
+                      </Card>
+                    ))
+                  )}
                 </div>
                 <Separator className="my-4" />
                 <div className="grid md:grid-cols-2 gap-6">
@@ -122,11 +136,17 @@ const ClientPage = () => {
                     <Card key={i} className="rounded-md">
                       <CardHeader>
                         <div className="flex items-start justify-between mb-2">
-                          <Badge variant={"outline"} className="rounded-md">{project.status}</Badge>
+                          <Badge variant={"outline"} className="rounded-md">
+                            {project.status}
+                          </Badge>
                           {project.funding.length >= 1 && (
                             <div className="space-x-2">
                               {project.funding.map((fund, j) => (
-                                <Badge variant={"secondary"} key={j}>
+                                <Badge
+                                  variant={"secondary"}
+                                  key={j}
+                                  className="rounded-md"
+                                >
                                   {fund}
                                 </Badge>
                               ))}

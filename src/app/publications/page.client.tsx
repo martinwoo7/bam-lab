@@ -270,20 +270,21 @@ const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
           <Badge variant={"secondary"} className=" rounded-md">
             {pub.year}
           </Badge>
-
-          <div className="flex gap-2 max-sm:mt-2">
-            <Badge variant={"outline"} className=" rounded-md">
-              {pub.type}
-            </Badge>
-            {pub.specialIssue && (
-              <Badge
-                variant="outline"
-                className="border-primary/50 text-primary rounded-md"
-              >
-                <BookMarked className="h-3 w-3 mr-1" />
-                Special Issue
+          <div className="flex flex-col sm:flex-row gap-2">
+            <div className="flex gap-2 max-sm:mt-2">
+              <Badge variant={"outline"} className=" rounded-md">
+                {pub.type}
               </Badge>
-            )}
+              {pub.specialIssue && (
+                <Badge
+                  variant="outline"
+                  className="border-primary/50 text-primary rounded-md"
+                >
+                  <BookMarked className="h-3 w-3 mr-1" />
+                  Special Issue
+                </Badge>
+              )}
+            </div>
             {pub.award && (
               <Badge className="bg-chart-1 hover:cursor-default rounded-md">
                 <Award className="size-3 mr-1" />
@@ -293,7 +294,7 @@ const PublicationCard = ({ pub }: { pub: EnrichedPublication }) => {
           </div>
         </div>
 
-        <CardTitle className="text-lg leading-tight">{pub.title}</CardTitle>
+        <CardTitle className="text-lg leading-tight max-sm:mt-4">{pub.title}</CardTitle>
         <CardDescription>
           {pub.enrichedAuthors.map((author, i) => (
             <Fragment key={i}>

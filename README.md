@@ -1,36 +1,107 @@
-This is the official website for Queen's University's Bigdata Analytics and Management (BAM) Laboratory, directed by [Farhana H. Zulkernine, PhD, PEng]().
+# Big Data & Analytics Management (BAM) Lab Website
 
-## Getting Started
+Official website for Queen's University's BAM Laboratory, directed by [Dr. Farhana H. Zulkernine](https://www.linkedin.com/in/farhanazulkernine/).
 
-First, run the development server:
+This project is built using [Next.js](https://nextjs.org/) (React), [Tailwind CSS](https://tailwindcss.com/) for styling, and [Shadcn UI](https://ui.shadcn.com/) components. It is statically generated and deployed to GitHub Pages.
+
+## 🚀 Getting Started
+
+To run the project locally, ensure you have **Node.js** (v18+) and **PNPM** installed.
+
+### 1. Install Dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+```
+
+### 2. Run Development Server
+
+```bash
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for Production (Optional)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To test the production build locally:
 
-## Learn More
+```bash
+pnpm build
+pnpm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📂 Managing System Data
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The website's content is **not** stored in a database. Instead, it uses structured TypeScript files to manage data easily without needing a backend.
 
-## Deploy on Vercel
+All data files are located in `src/lib/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| File Path                 | Description                                                    |
+| ------------------------- | -------------------------------------------------------------- |
+| `src/lib/people.ts`       | Manage Faculty, PhDs, Postdocs, and Alumni lists.              |
+| `src/lib/news.ts`         | Add/Edit "Latest News" items and Upcoming Events.              |
+| `src/lib/research.ts`     | Define Research Areas and Projects.                            |
+| `src/lib/publications.ts` | Manage the list of publications (Conferences, Journals, etc.). |
+| `src/lib/wiki.ts`         | Manage links and resources for the Wiki page.                  |
+| `src/lib/site-config.ts`  | General site settings (Nav items, Footer info).                |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### How to Update Content
+
+1. Open the relevant file in `src/lib/`.
+2. Add a new object to the array or modify existing fields.
+3. Save the file.
+4. If the dev server is running, the changes will reflect immediately.
+
+### Managing Assets
+
+Static assets are stored in the `public/` directory.
+
+#### 📸 Images (`public/imgs/`)
+
+- **People:** Store headshots in `public/imgs/people/`.
+- **Logos:** Store sponsor or partner logos in `public/imgs/logos/`.
+- **General:** Store other site images in `public/imgs/`.
+- **Reference:** `/imgs/people/john_doe.jpg`
+
+#### 📄 Papers (`public/papers/`)
+
+- Store PDF files for publications here.
+- **Reference:** `/papers/paper_name.pdf`
+
+#### 📚 Wiki Files (`public/wiki/`)
+
+- Store templates, handbooks, and other resources for the internal Wiki here.
+- **Reference:** `/wiki/template_name.docx` (Note: some legacy code might not need the leading slash, check specific usage)
+
+**Important:** Assets in the `public/` folder are served at the root URL.
+
+---
+
+## 🌍 Deployment
+
+This website uses **GitHub Actions** to automatically build and deploy to GitHub Pages.
+
+### How to Deploy
+
+You simply need to **push your changes to the `main` branch**.
+
+1. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Updated lab news and publications"
+   ```
+2. Push to GitHub:
+   ```bash
+   git push origin main
+   ```
+
+### What happens next?
+
+1. The GitHub Action defined in `.github/workflows/nextjs.yml` will trigger.
+2. It will install dependencies, build the static site, and export it to the `./out` folder.
+3. The content is then deployed to the `gh-pages` environment automatically.
+
+**Note:** Ensure your repository Settings > Pages is set to deploy from **GitHub Actions**, not a branch.

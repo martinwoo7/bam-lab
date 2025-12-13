@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import {
   Card,
   CardTitle,
@@ -24,9 +25,14 @@ import {
   computingResources,
   templates,
   communicationTools,
-  handbooks,
   quickLinks,
 } from "@/lib/wiki";
+
+export const metadata: Metadata = {
+  title: "Lab Wiki & Resources",
+  description: "Internal resources, templates, and links for BAM Lab members.",
+};
+
 const Page = () => {
   return (
     <div className="container py-12 max-w-7xl">
@@ -185,42 +191,6 @@ const Page = () => {
           </div>
         </TabsContent>
 
-        {/* Handbooks Tab */}
-        {/* <TabsContent value="handbooks" className="space-y-6">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {handbooks.map((handbook) => (
-              <Card
-                key={handbook.title}
-                className="group hover:shadow-md transition-shadow"
-              >
-                <CardHeader>
-                  <div className="p-3 rounded-lg bg-primary/10 w-fit mb-2">
-                    <handbook.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">{handbook.title}</CardTitle>
-                  <CardDescription className="font-serif">
-                    {handbook.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">
-                      {handbook.pages} pages
-                    </span>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="gap-2 bg-transparent"
-                    >
-                      <BookOpen className="h-3 w-3" />
-                      Read
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </TabsContent> */}
         {/* Computing Tab */}
         <TabsContent value="computing" className="space-y-6">
           <div className="grid gap-4 md:grid-cols-2">

@@ -16,6 +16,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerClose,
+  DrawerDescription,
 } from "./ui/drawer";
 
 import {
@@ -83,6 +84,7 @@ export function MobileNav({
           <div className="flex flex-col gap-4">
             <DrawerHeader>
               <DrawerTitle className="sr-only">Menu</DrawerTitle>
+              <DrawerDescription className="sr-only">Menu</DrawerDescription>
             </DrawerHeader>
             <div className="flex flex-col gap-3">
               <MobileLink href="/" onOpenChange={setOpen}>

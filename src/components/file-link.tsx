@@ -7,7 +7,7 @@ interface FileLinkProps {
   children: ReactNode;
   forceDownload?: boolean; // true = download, false = open in new tab
   trackName?: string; // e.g. "Download: CV"
-  className?: string;
+  className?: string; // Optional className prop
 }
 
 export default function FileLink({
@@ -17,15 +17,9 @@ export default function FileLink({
   trackName,
   className,
 }: FileLinkProps) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-  // If the link starts with '/', prepend the base path.
-  // If it's an external link (https://), leave it alone.
-  const finalHref = href.startsWith("/") ? `${basePath}${href}` : href;
-
   return (
     <Link
-      href={finalHref}
+      href={href}
       className={className}
       // 'download': if present, tells browser to download instead of navigate
       // 'target="_blank"': opens in new tab (good for PDFs if not downloading)

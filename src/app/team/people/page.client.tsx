@@ -3,9 +3,9 @@
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import Empty from "./components/empty";
-import PersonCard from "./components/person-card";
-import PrevPersonCard from "./components/prev-person-card";
+import Empty from "@/components/empty";
+import PersonCard from "@/components/person-card";
+import PrevPersonCard from "@/components/prev-person-card";
 
 import { People, PreviousPeople } from "@/lib/people";
 

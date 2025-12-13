@@ -38,7 +38,7 @@ const SiteFooter = () => {
         </div>
       </div>
       <div className="container-wrapper py-6">
-        <div className="flex flex-col h-(--footer-height) justify-center items-center ">
+        <div className="flex flex-col justify-center items-center ">
           <p className="text-muted-foreground text-center text-xs sm:text-sm leading-loose">
             © 2025 Big-Data and Analytics Management Lab.{" "}
             <br className="sm:hidden" />

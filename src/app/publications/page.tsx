@@ -3,7 +3,7 @@ import { getPublications } from "@/lib/utils";
 import ClientPage from "./page.client";
 
 export const metadata: Metadata = {
-  title: "Publications | Queen's BAM Lab",
+  title: "Publications",
 };
 
 const Page = async () => {

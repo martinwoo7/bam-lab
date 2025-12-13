@@ -20,7 +20,10 @@ const merriweatherSerif = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: {
+    template: "%s | BAM Lab | Queen's University",
+    default: "BAM Lab | Queen's University",
+  },
   description: siteConfig.description,
 };
 
@@ -40,7 +43,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "p-0 pt-2 max-w-480 mx-auto text-foreground group/body xl:[--footer-height:calc(var(--spacing)*24)] overscroll-none [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)]",
+          "max-w-480 mx-auto text-foreground group/body xl:[--footer-height:calc(var(--spacing)*24)] overscroll-none [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)]",
           `${montserratSans.variable} ${merriweatherSerif.variable} antialiased`
         )}
       >

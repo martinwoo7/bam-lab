@@ -5,6 +5,7 @@ export interface PersonProps {
   date?: string; // Date started with the lab (etc. "Jan 2024")
   email: string;
   website?: string;
+  linkedin?: string;
   topic?: string; // Topic of study
 }
 
@@ -25,7 +26,8 @@ export const People: Record<
       name: "Dr. Farhana H. Zulkernine",
       role: "Lab Director & Professor",
       email: "farhana.zulkernine@queensu.ca",
-      image: "imgs/zulkernine.jpg",
+      image: "/imgs/zulkernine.jpg",
+      linkedin: "https://www.linkedin.com/in/farhanazulkernine/",
     },
   ],
   postdocs: [],
@@ -35,7 +37,7 @@ export const People: Record<
       role: "PhD Student",
       date: "Jan 2025",
       email: "student@queensu.ca",
-      image: "imgs/people/jing_tao.jpg",
+      image: "/imgs/people/jing_tao.jpg",
       topic:
         "Goal oriented dialogue system for information extraction in remote service provisioning.",
     },
@@ -44,7 +46,9 @@ export const People: Record<
       role: "PhD Student",
       date: "Sep 2024",
       email: "student@queensu.ca",
-      image: "imgs/people/nafiz_sadman.png",
+      image: "/imgs/people/nafiz_sadman.png",
+      website: "https://nafiz95.github.io/",
+      linkedin: "https://www.linkedin.com/in/nafiz-sadman/",
       topic:
         "Explainable AI and rule extraction from multimodal image and text data.",
     },
@@ -52,9 +56,9 @@ export const People: Record<
       name: "Farida Mohamad",
       role: "PhD Student",
       date: "Jan 2024",
-      email: "student@queensu.ca",
-      image: "imgs/people/farida_mohamad.jpg",
-      website: "/#",
+      email: "farida.mohamad@queensu.ca",
+      image: "/imgs/people/farida_mohamad.jpg",
+      linkedin: "https://www.linkedin.com/in/farida-alaaeldin-mostafa/",
       topic:
         "Remote monitoring of vital signs and predictive and prescriptive medical data analytics.",
     },
@@ -63,7 +67,9 @@ export const People: Record<
       role: "PhD Student",
       date: "Sep 2023",
       email: "student@queensu.ca",
-      image: "imgs/people/aman_anand.png",
+      image: "/imgs/people/aman_anand.png",
+      website: "https://www.amananand.ca/",
+      linkedin: "https://www.linkedin.com/in/aman-anand-phd/",
       topic: "Situation aware human activity monitoring.",
     },
     {
@@ -71,7 +77,9 @@ export const People: Record<
       role: "PhD Student",
       date: "Sep 2023",
       email: "student@queensu.ca",
-      image: "imgs/people/amir_eskandari.png",
+      image: "/imgs/people/amir_eskandari.png",
+      website: "https://ameskandari.github.io/",
+      linkedin: "https://www.linkedin.com/in/ameskandari/",
       topic:
         "Multimodal graph data analytics for personalized conversational AI in human computer interation.",
     },
@@ -80,8 +88,7 @@ export const People: Record<
       role: "PhD Student",
       date: "Sep 2022",
       email: "student@queensu.ca",
-      image: "imgs/people/elyas_rashno.png",
-      website: "/#",
+      image: "/imgs/people/elyas_rashno.png",
       topic:
         "Multimodal streaming data management and analysis for Triage-bot.",
     },
@@ -90,6 +97,7 @@ export const People: Record<
       role: "PhD Student",
       date: "Sep 2021",
       email: "student@queensu.ca",
+      image: "/imgs/people/yuhao_chen.jpg",
       topic:
         "Using deep learning for knowledge extraction from unstructure text data.",
     },
